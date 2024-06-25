@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet  #// This is the type of the Kubernetes object
+metadata:
+  name: myapp-replicaset  #// This is the name of the replicaset 
+  labels: 
+    app: labelReplicaset  #// This is the label of the replicaset for identification with filter
+spec:
+  # modify replicas according to your case
+  replicas: 3 #// This is the number of replicas that will be created
+  selector:
+    matchLabels: # matchLabels devem ser iguais aos labels do pod
+      app: labelReplicaset  #// faz uma identificação dos pods que serão criados no replicaset
+  template:
+    metadata:
+      labels:
+        app: labelReplicaset  #// esta e a label de identificação dos pod
+    spec:
+      containers:
+      - name: name-container-nginx
+        image: nginx
+        ports:
+        - name: web
+          containerPort:  80
+          protocol: TCP
+        env:
+        - name: NGX_VERSION
+          value: 1.16.1
