@@ -3,11 +3,14 @@ apiVersion: kind.x-k8s.io/v1alpha4
 name: myclusterkind
 nodes:
 - role: control-plane
+- role: control-plane
+- role: control-plane
   kubeadmConfigPatches:
     - |
       kind: InitConfiguration
       nodeRegistration:
         kubeletExtraArgs:
           node-labels: "ingress-ready=true"
+- role: worker
 - role: worker
 - role: worker
