@@ -1,6 +1,6 @@
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
-name: myclusterkind-ha  #cluster com alta disponibilidade
+name: myclusterkind-ha  # cluster com alta disponibilidade
 nodes:
 - role: control-plane
 - role: control-plane
