@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1 
+metadata:    # nome do serviço de LoadBalancer
+  name: foo-service    
+spec:     # tipo de serviço LoadBalancer
+  type: LoadBalancer
+  selector:     # seleciona o pod que será exposto pelo serviço de LoadBalancer com as labels http-echo
+    app: http-echo
+  ports:
+  # Default port used by the image  
+  - port: 5678  # porta para acessar o serviço de LoadBalancer
+    targetPort: 5678      # porta do pod que será exposto pelo serviço de LoadBalancer
+    protocol: TCP     # protocolo de comunicação
+       

@@ -1,21 +1,21 @@
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
-name: myclusterkind-ha  # cluster com alta disponibilidade
+name: myclusterkind-ha  # cluster com alta disponibilidade   
 nodes:
 - role: control-plane
-- role: control-plane
+- role: control-plane           # 2 voce pode setar a versao do node com o campo image
   # image:  kindest/node:v1.30.0@sha256:047357ac0cfea04663786a612ba1eaba9702bef25227a794b52890dd8bcd692e
 - role: control-plane
-  kubeadmConfigPatches:
+  kubeadmConfigPatches:     # permite que voce adicione patches ao arquivo de configuracao do kubeadm para Loadbalancer NodePort
     - |
-      kind: InitConfiguration
+      kind: InitConfiguration  
       nodeRegistration:
         kubeletExtraArgs:
           node-labels: "ingress-ready=true"
 - role: worker
   extraPortMappings:
-  - containerPort: 30000
-    hostPort: 8081
+  - containerPort: 30000    # porta para usar NodePort esta no range de 30000 a 32767
+    hostPort: 8081          # porta da sua maquina
     listenAddress: "0.0.0.0" # Optional, defaults to "0.0.0.0"
     protocol: tcp # Optional, defaults to tcp
 - role: worker

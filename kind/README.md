@@ -9,3 +9,6 @@ como ver os nodes do meu cluster
 
 > kind get cluster
 
+
+
+### [kind -  criando um cluster kubernetes com docker ](https://kind.sigs.k8s.io/)
