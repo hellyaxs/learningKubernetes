@@ -11,4 +11,3 @@ spec:     # tipo de serviço LoadBalancer
   - port: 5678  # porta para acessar o serviço de LoadBalancer
     targetPort: 5678      # porta do pod que será exposto pelo serviço de LoadBalancer
     protocol: TCP     # protocolo de comunicação
-       

@@ -4,9 +4,9 @@ metadata:
   namespace: metallb-system
   name: config
 data:
-  config: |
+  config: |        # sete o range de ips que o LoadBalancer vai usar na linha addresses 
     address-pools:
     - name: default
       protocol: layer2
       addresses:
-      - 172.22.0.200-172.22.0.250
+      - 172.22.0.200-172.22.0.250   
